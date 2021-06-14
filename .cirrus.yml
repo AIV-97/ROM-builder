@@ -35,4 +35,3 @@ task:
       - set -evx
       - command=$(tail /tmp/ci/ccache.sh -n +$(expr $(grep "# upload" /tmp/ci/ccache.sh -n | cut -f1 -d:) + 2))
       - bash -c "$command"
-
