@@ -2,7 +2,7 @@ env: # Environment variables to pass to all tasks
     CIRRUS_CLONE_DEPTH: 1
     CIRRUS_WORKING_DIR: "/tmp/ci"
 
-    rclone_config: "ENCRYPTED[6fd591d0c10033e479b128018750feb4e7b81da07bba5af3fd2335ff43f6c0925a40fa719c46f564a5cb98701a61078c]"
+    rclone_config: "ENCRYPTED[164b43f55300075a28b1ac43fcecc76b7a04fb82bfb2c4d8a154661cd0741583e714263a9ff7779a9eec5adcb2f79413]"
 
 task:
     name: DotOS
