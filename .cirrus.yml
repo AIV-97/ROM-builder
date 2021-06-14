@@ -20,7 +20,9 @@ task:
       - command=$(head /tmp/ci/build.sh -n $(expr $(grep "# build" /tmp/ci/build.sh -n | cut -f1 -d:) - 1))
       - bash -c "$command"
     monitor_background_script:
-      - ./monitor
+      - set -evx
+      - command=$(tail /tmp/ci/ccache.sh -n +$(expr $(grep "# monitor" /tmp/ci/ccache.sh -n | cut -d : -f1) + 0) | head -n 13)
+      - bash -c "$command"
     build_script:
       - set -evx
       - command=$(tail /tmp/ci/build.sh -n +$(expr $(grep "# build" /tmp/ci/build.sh -n | cut -f1 -d:) + 2) | head -n -16)
