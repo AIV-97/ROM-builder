@@ -16,10 +16,10 @@ repo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync 
 
 # patches
 
-#cd external/selinux
-#wget https://github.com/PixelExperience/external_selinux/commit/9d6ebe89430ffe0aeeb156f572b2a810f9dc98cc.patch
-#patch -p1 < *.patch
-#cd ../..
+cd external/selinux
+wget https://github.com/PixelExperience/external_selinux/commit/9d6ebe89430ffe0aeeb156f572b2a810f9dc98cc.patch
+patch -p1 < *.patch
+cd ../..
 
 #cd frameworks/base
 #curl -LO https://github.com/PixelExperience/frameworks_base/commit/37f5a323245b0fd6269752742a2eb7aa3cae24a7.patch
@@ -31,10 +31,10 @@ repo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync 
 #patch -p1 < *.patch
 #cd ../../../..
 
-#cd frameworks/opt/net/ims
-#wget https://github.com/PixelExperience/frameworks_opt_net_ims/commit/661ae9749b5ea7959aa913f2264dc5e170c63a0a.patch
-#patch -p1 < *.patch
-#cd ../../../..
+cd frameworks/opt/net/ims
+wget https://github.com/PixelExperience/frameworks_opt_net_ims/commit/661ae9749b5ea7959aa913f2264dc5e170c63a0a.patch
+patch -p1 < *.patch
+cd ../../../..
 
 # build
 
