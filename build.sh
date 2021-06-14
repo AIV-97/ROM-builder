@@ -3,7 +3,7 @@
 ROM_MANIFEST=git://github.com/LineageOS/android.git
 BRANCH=lineage-18.1
 LOCAL_MANIFEST=https://github.com/cArN4gEisDeD/local_manifest
-MANIFEST_BRANCH=pe
+MANIFEST_BRANCH=lineage
 
 mkdir -p /tmp/rom
 cd /tmp/rom
