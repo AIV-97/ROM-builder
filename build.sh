@@ -1,9 +1,9 @@
 # sync
 
-ROM_MANIFEST=git://github.com/DotOS/manifest.git
-BRANCH=dot11
-LOCAL_MANIFEST=https://github.com/P-Salik/local_manifest
-MANIFEST_BRANCH=DotOS
+ROM_MANIFEST=git://github.com/LineageOS/android.git
+BRANCH=lineage-18.1
+LOCAL_MANIFEST=https://github.com/cArN4gEisDeD/local_manifest
+MANIFEST_BRANCH=pe
 
 mkdir -p /tmp/rom
 cd /tmp/rom
@@ -41,7 +41,7 @@ repo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync 
 cd /tmp/rom
 
 . build/envsetup.sh
-lunch dot_RMX1941-userdebug
+lunch lineage_RMX1941-userdebug
 
 export CCACHE_DIR=/tmp/ccache
 export CCACHE_EXEC=$(which ccache)
@@ -62,15 +62,15 @@ ccache -s
 
 # upload
 
-up(){
-	curl --upload-file $1 https://transfer.sh/$(basename $1); echo
-	# 14 days, 10 GB limit
-}
-
-
 #up(){
-#	time rclone copy $1 aosp:ccache/ccache-ci -P # apon is my rclone config name, 
+#	curl --upload-file $1 https://transfer.sh/$(basename $1); echo
+	# 14 days, 10 GB limit
 #}
+
+
+up(){
+	time rclone copy $1 aosp:ccache/ccache-ci -P # apon is my rclone config name, 
+}
 
 up out/target/product/RMX1941/*UNOFFICIAL*.zip || echo "Only ccache generated or build failed lol"
 
