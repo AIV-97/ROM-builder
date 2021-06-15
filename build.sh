@@ -84,6 +84,6 @@ up(){
 	time rclone copy $1 aosp:ccache/ccache-ci -P # apon is my rclone config name, 
 }
 
-up tmp/rom/out/target/product/RMX1941/*UNOFFICIAL*.zip || echo "Only ccache generated or build failed lol"
+up /tmp/rom/out/target/product/RMX1941/*UNOFFICIAL*.zip || echo "Only ccache generated or build failed lol"
 
 ccache -s
