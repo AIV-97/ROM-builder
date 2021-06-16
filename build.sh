@@ -3,7 +3,7 @@
 ROM_MANIFEST=git://github.com/LineageOS/android.git
 BRANCH=lineage-18.1
 LOCAL_MANIFEST=https://github.com/cArN4gEisDeD/local_manifest
-MANIFEST_BRANCH=lineage
+MANIFEST_BRANCH=olives
 
 mkdir -p /tmp/rom
 cd /tmp/rom
@@ -16,10 +16,10 @@ repo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync 
 
 # Patches
 
-cd external/selinux
-curl -LO https://github.com/PixelExperience/external_selinux/commit/9d6ebe89430ffe0aeeb156f572b2a810f9dc98cc.patch
-patch -p1 < *.patch
-cd ../..
+#cd external/selinux
+#curl -LO https://github.com/PixelExperience/external_selinux/commit/9d6ebe89430ffe0aeeb156f572b2a810f9dc98cc.patch
+#patch -p1 < *.patch
+#cd ../..
 
 #cd frameworks/base
 #curl -LO https://github.com/PixelExperience/frameworks_base/commit/37f5a323245b0fd6269752742a2eb7aa3cae24a7.patch
@@ -31,17 +31,17 @@ cd ../..
 #patch -p1 < *.patch
 #cd ../../../..
 
-cd frameworks/opt/net/ims
-curl -LO https://github.com/PixelExperience/frameworks_opt_net_ims/commit/661ae9749b5ea7959aa913f2264dc5e170c63a0a.patch
-patch -p1 < *.patch
-cd ../../../..
+#cd frameworks/opt/net/ims
+#curl -LO https://github.com/PixelExperience/frameworks_opt_net_ims/commit/661ae9749b5ea7959aa913f2264dc5e170c63a0a.patch
+#patch -p1 < *.patch
+#cd ../../../..
 
 # build
 
 cd /tmp/rom
 
 . build/envsetup.sh
-lunch lineage_RMX1941-userdebug
+lunch lineage_olives-userdebug
 
 export SKIP_API_CHECKS=true
 export SKIP_ABI_CHECKS=true
@@ -84,6 +84,6 @@ up(){
 	time rclone copy $1 aosp:ccache/ccache-ci -P # apon is my rclone config name, 
 }
 
-up /tmp/rom/out/target/product/RMX1941/*UNOFFICIAL*.zip || echo "Only ccache generated or build failed lol"
+up /tmp/rom/out/target/product/olives/*UNOFFICIAL*.zip || echo "Only ccache generated or build failed lol"
 
 ccache -s
