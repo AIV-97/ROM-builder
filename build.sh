@@ -57,17 +57,17 @@ ccache -z
 
 
 # metalava
-#make_metalava(){
-#        mka api-stubs-docs
-#        mka system-api-stubs-docs
-#        mka test-api-stubs-docs
-#}
+make_metalava(){
+        mka api-stubs-docs
+        mka system-api-stubs-docs
+        mka test-api-stubs-docs
+}
 
 #make_metalava
 
-mka bacon -j$(nproc --all) &
-sleep 90m
-kill %1 || echo "Build already failed or completed"
+mka bacon -j$(nproc --all) #&
+#sleep 90m
+#kill %1 || echo "Build already failed or completed"
 ccache -s
 
 # upload
