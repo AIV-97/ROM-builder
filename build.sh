@@ -66,7 +66,7 @@ ccache -z
 #make_metalava
 
 mka bacon -j$(nproc --all) &
-sleep 90m
+sleep 80m
 kill %1 || echo "Build already failed or completed"
 ccache -s
 
