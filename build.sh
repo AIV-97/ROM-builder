@@ -43,9 +43,9 @@ cd /tmp/rom
 . build/envsetup.sh
 lunch nezuko_RMX1941-userdebug
 
-#export SKIP_API_CHECKS=true
-#export SKIP_ABI_CHECKS=true
-#export _JAVA_OPTIONS=-Xmx16g
+export SKIP_API_CHECKS=true
+export SKIP_ABI_CHECKS=true
+export _JAVA_OPTIONS=-Xmx16g
 
 export CCACHE_DIR=/tmp/ccache
 export CCACHE_EXEC=$(which ccache)
@@ -66,7 +66,7 @@ ccache -z
 #make_metalava
 
 mka bacon -j$(nproc --all) #&
-sleep 80m
+sleep 90m
 kill %1 || echo "Build already failed or completed"
 ccache -s
 
