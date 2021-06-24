@@ -1,9 +1,9 @@
 # sync
 
-ROM_MANIFEST=git://github.com/Evolution-X/manifest.git
-BRANCH=elle
-LOCAL_MANIFEST=https://github.com/cArN4gEisDeD/local_manifest
-MANIFEST_BRANCH=evox
+ROM_MANIFEST=https://github.com/NusantaraProject-ROM/android_manifest
+BRANCH=11
+LOCAL_MANIFEST=https://github.com/Fraschze97/local_manifest.git
+MANIFEST_BRANCH=nusantara11
 
 mkdir -p /tmp/rom
 cd /tmp/rom
@@ -16,10 +16,10 @@ repo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync 
 
 # Patches
 
-cd external/selinux
-curl -LO https://github.com/PixelExperience/external_selinux/commit/9d6ebe89430ffe0aeeb156f572b2a810f9dc98cc.patch
-patch -p1 < *.patch
-cd ../..
+#cd external/selinux
+#curl -LO #https://github.com/PixelExperience/external_selinux/commit/9d6ebe89430ffe0aeeb156f572b2a810f9dc98cc.patch
+#patch -p1 < *.patch
+#cd ../..
 
 #cd frameworks/base
 #curl -LO https://github.com/PixelExperience/frameworks_base/commit/37f5a323245b0fd6269752742a2eb7aa3cae24a7.patch
@@ -41,7 +41,7 @@ cd ../../../..
 cd /tmp/rom
 
 . build/envsetup.sh
-lunch evolution_RMX1941-userdebug
+lunch nad_RMX1941-userdebug
 
 export SKIP_API_CHECKS=true
 export SKIP_ABI_CHECKS=true
@@ -57,15 +57,14 @@ ccache -z
 
 
 # metalava
-#make_metalava(){
-#        mka api-stubs-docs
-#        mka system-api-stubs-docs
-#        mka test-api-stubs-docs
-#}
+make_metalava(){
+        make init
+        make sepolicy
+}
 
-#make_metalava
+make_metalava
 
-mka bacon -j$(nproc --all)
+mka nad 
 sleep 90m
 kill %1 || echo "Build already failed or completed"
 ccache -s

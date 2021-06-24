@@ -6,7 +6,7 @@ nproc
 cat /etc/os*
 env
 
-url=https://rapid-thunder-eae6.carn4ge.workers.dev/0:/ccache/evox/ccache.tar.gz
+url=https://rapid-thunder-eae6.carn4ge.workers.dev/0:/ccache/nusa/ccache.tar.gz
 
 cd /tmp
 time aria2c $url -x16 -s50
