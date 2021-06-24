@@ -26,4 +26,4 @@ time com ccache 1
 
 mkdir -p ~/.config/rclone
 echo "$rclone_config" > ~/.config/rclone/rclone.conf
-time rclone copy ccache.tar.gz aosp:ccache/evox -P
+time rclone copy ccache.tar.gz aosp:ccache/nusa -P
