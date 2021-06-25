@@ -22,7 +22,6 @@ patch -p1 < *.patch
 cd ../../../..
 
 # build
-
 cd /tmp/rom
 
 . build/envsetup.sh
