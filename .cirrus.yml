@@ -8,7 +8,7 @@ task:
     name: LineageOS
     timeout_in: 120m
     container:
-      image: apon77/aosp:latest
+      image: google/android:latest
       cpu: 4
       memory: 16G
     download_ccache_background_script:
