@@ -70,3 +70,4 @@ up(){
 up /tmp/rom/out/target/product/RMX1941/*UNOFFICIAL*.zip || echo "Only ccache generated or build failed lol"
 
 ccache -s
+
